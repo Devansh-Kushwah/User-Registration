@@ -75,6 +75,7 @@ function Profile() {
   const DeleteAccount = async () => {
     try {
       const response = await deleteUser()()
+      localStorage.removeItem('auth-token')
       handleSuccess(response?.data?.message)
       useUserStore.getState().logout()
     } catch (error) {
@@ -119,6 +120,7 @@ function Profile() {
             autoComplete="name"
             onChange={(e) => setName(e.target.value)}
             value={name}
+            InputLabelProps={{ shrink: true }}
           />
           <TextField
             margin="normal"
@@ -131,6 +133,7 @@ function Profile() {
             autoComplete="age"
             onChange={(e) => setAge(e.target.value)}
             value={age}
+            InputLabelProps={{ shrink: true }}
           />
           <TextField
             margin="normal"
@@ -171,6 +174,7 @@ function Profile() {
             inputProps={{ maxLength: 5000 }}
             onChange={(e) => setAbout(e.target.value)}
             value={about}
+            InputLabelProps={{ shrink: true }}
           />
           <Button
             type="submit"

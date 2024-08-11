@@ -75,6 +75,7 @@ function Login() {
             autoComplete="email"
             onChange={handleChange}
             value={loginInfo.email}
+            InputLabelProps={{ shrink: true }}
           />
           <TextField
             margin="normal"
@@ -87,6 +88,7 @@ function Login() {
             autoComplete="current-password"
             onChange={handleChange}
             value={loginInfo.password}
+            InputLabelProps={{ shrink: true }}
           />
           <Button
             type="submit"

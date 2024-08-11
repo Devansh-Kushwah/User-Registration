@@ -70,7 +70,11 @@ const createAxios = () => {
   axiosInstance.interceptors.response.use(
     (response) => response,
     async (error) => {
-      const errorResponse = error.response
+      const errorResponse = error?.response
+      if (!errorResponse) {
+        console.log('Network Error')
+        handleError('Network Error')
+      }
       if (isTokenExpiredError(errorResponse)) {
         if (window.location.pathname !== '/') {
           console.log('You are logged out!')

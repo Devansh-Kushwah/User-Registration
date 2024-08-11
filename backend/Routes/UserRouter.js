@@ -4,12 +4,12 @@ const {
   deleteUser,
 } = require('../Controllers/UserController')
 
-const isAuthenticated = require('../Middlewares/Auth')
+const { isAuthenticated, ValidateProfile } = require('../Middlewares/Auth')
 
 const router = require('express').Router()
 
 router.get('/fetchUserDetails', isAuthenticated, fetchUserDetails)
-router.post('/updateProfile', isAuthenticated, updateProfile)
+router.post('/updateProfile', isAuthenticated, ValidateProfile, updateProfile)
 router.delete('/deleteUser', isAuthenticated, deleteUser)
 
 module.exports = router
