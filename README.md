@@ -33,10 +33,6 @@ npm install
 npm start
 ```
 
-Here is the API documentation for the user registration system you have developed:
-
----
-
 # User Registration API Documentation
 
 ## Base URL
